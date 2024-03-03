@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+        
     steps:
       - uses: actions/checkout@v2
 
@@ -17,3 +17,8 @@ jobs:
           token: ${{ secrets.TOKEN }}
         run: chmod +x build.sh && ./build.sh "${token}"
 
+    
+    strategy:
+      matrix:
+        model: [ "N975F" ]
+        
